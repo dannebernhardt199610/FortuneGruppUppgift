@@ -1,8 +1,14 @@
 package com.company;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Repository {
     private static final List<String> DEFAULT_FORTUNES = List.of(
@@ -22,6 +28,12 @@ public class Repository {
 
     Repository() {
         fortunes = DEFAULT_FORTUNES;
+    }
+
+    Repository(Path p) throws IOException {
+        try (Stream<String> lines = Files.lines(p, StandardCharsets.UTF_8)) {
+            fortunes = lines.collect(Collectors.toList());
+        }
     }
 
     // Get a random fortune
