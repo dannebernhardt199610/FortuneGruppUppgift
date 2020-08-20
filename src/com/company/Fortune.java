@@ -20,7 +20,11 @@ public class Fortune {
         color = scColor.length();
     }
 
-    
+    void getFood(){
+        System.out.println("What is your favourite food?");
+        String scFood = sc.next();
+        food = scFood.length();
+    }
 
 
 }
