@@ -26,5 +26,17 @@ public class Fortune {
         food = ScFood.length();
     }
 
+    void askQuestions(){
+        getName();
+        getColor();
+        getFood();
+    }
+
+    void tellFortune(){
+        int result = name + color + food;
+        result = result % fortunes.length;
+        System.out.println(fortunes[result]);
+    }
+
 
 }
