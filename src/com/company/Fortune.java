@@ -1,20 +1,11 @@
 package com.company;
 
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Fortune {
     Scanner sc = new Scanner(System.in);
-    String[] fortunes = {  "A dubious friend may be an enemy in camouflage.",
-            "Your success will astonish everyone.",
-            "You will soon be surrounded by good friends and laughter.",
-            "Many will travel to hear you speak.",
-            "Now is a good time to buy stock.",
-            "Physical activity will dramatically improve your outlook today.",
-            "Say hello to others. You will have a happier day.",
-            "You should be able to undertake and complete anything.",
-            "You will be pleasantly surprised tonight.",
-            "You will be traveling and coming into a fortune.",
-    };
 
     int name, color, food;
 
@@ -43,9 +34,14 @@ public class Fortune {
     }
 
     void tellFortune(){
-        int result = name + color + food;
-        result = result % fortunes.length;
-        System.out.println(fortunes[result]);
+        Repository repo;
+        try {
+            repo = new Repository(Paths.get("fortunes"));
+        } catch (IOException e) {
+            System.out.println("'fortunes' file not found, using built-in fortune repository...");
+            repo = new Repository();
+        }
+        System.out.println(repo.getFortune(name, color, food));
     }
 
 
