@@ -26,10 +26,12 @@ public class Repository {
     private static final Random rng = new Random();
     private final List<String> fortunes;
 
+    // Get a repository loaded with default fortunes
     Repository() {
         fortunes = DEFAULT_FORTUNES;
     }
 
+    // Read fortunes from the file defined by a given path
     Repository(Path p) throws IOException {
         try (Stream<String> lines = Files.lines(p, StandardCharsets.UTF_8)) {
             fortunes = lines.collect(Collectors.toList());
