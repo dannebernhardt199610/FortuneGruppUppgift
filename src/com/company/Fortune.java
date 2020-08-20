@@ -36,9 +36,9 @@ public class Fortune {
     void tellFortune(){
         Repository repo;
         try {
-            repo = new Repository(Paths.get("fortunes"));
+            repo = new Repository(Paths.get("humour"));
         } catch (IOException e) {
-            System.out.println("'fortunes' file not found, using built-in fortune repository...");
+            System.out.println("'humour' file not found, using built-in fortune repository...");
             repo = new Repository();
         }
         System.out.println(repo.getFortune(name, color, food));
