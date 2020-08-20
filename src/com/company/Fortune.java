@@ -14,5 +14,13 @@ public class Fortune {
         name = scName.length();
     }
 
+    void getColor(){
+        System.out.println("What is your favourite color?");
+        String scColor = sc.next();
+        color = scColor.length();
+    }
+
+    
+
 
 }
