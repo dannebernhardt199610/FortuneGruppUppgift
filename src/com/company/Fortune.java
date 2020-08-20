@@ -22,8 +22,8 @@ public class Fortune {
 
     void getFood(){
         System.out.println("What is your favourite food?");
-        String scFood = sc.next();
-        food = scFood.length();
+        String ScFood = sc.next();
+        food = ScFood.length();
     }
 
 
