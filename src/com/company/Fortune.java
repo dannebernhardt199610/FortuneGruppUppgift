@@ -18,28 +18,27 @@ public class Fortune {
 
     int name, color, food;
 
-    void getName(){
-        System.out.println("What is your name?");
-        String scName = sc.next();
-        name = scName.length();
+    private String getInput(String prompt) {
+        System.out.println(prompt);
+        return sc.nextLine();
     }
 
-    void getColor(){
-        System.out.println("What is your favourite color?");
-        String scColor = sc.next();
-        color = scColor.length();
+    String getName(){
+        return getInput("What is your name?");
     }
 
-    void getFood(){
-        System.out.println("What is your favourite food?");
-        String ScFood = sc.next();
-        food = ScFood.length();
+    String getColor(){
+        return getInput("What is your favourite color?");
+    }
+
+    String getFood(){
+        return getInput("What is your favourite food?");
     }
 
     void askQuestions(){
-        getName();
-        getColor();
-        getFood();
+        name = getName().length();
+        color = getColor().length();
+        food = getFood().length();
     }
 
     void tellFortune(){
