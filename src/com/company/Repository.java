@@ -45,6 +45,6 @@ public class Repository {
 
     // Get a pseudorandom fortune derived from an arbitrary input
     public String getFortune(Object... values) {
-        return fortunes.get(Objects.hash(values) % fortunes.size());
+        return fortunes.get(Math.abs(Objects.hash(values)) % fortunes.size());
     }
 }
