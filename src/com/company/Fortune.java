@@ -33,12 +33,12 @@ public class Fortune {
         getFood();
     }
 
-    void tellFortune(){
+    void tellFortune(String filename){
         Repository repo;
         try {
-            repo = new Repository(Paths.get("humour"));
+            repo = new Repository(Paths.get(filename));
         } catch (IOException e) {
-            System.out.println("'humour' file not found, using built-in fortune repository...");
+            System.out.println(filename + " file not found, using built-in fortune repository...");
             repo = new Repository();
         }
         System.out.println(repo.getFortune(name, color, food));
